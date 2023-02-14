@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"path"
 	"regexp"
 	"strconv"
@@ -12,6 +13,8 @@ import (
 	"time"
 
 	"github.com/astaxie/beego"
+	"github.com/gomarkdown/markdown"
+	"github.com/hunterhug/go_image"
 	_ "github.com/jinzhu/gorm"
 )
 
@@ -78,9 +81,53 @@ func ResizeImage(filename string) {
 		w := resizeImage[i]
 		width, _ := strconv.Atoi(w)
 		savepath := filename + "_" + w + "x" + w + extName
-		err := Resize_byself(filename, savepath, width, width)
+		err := go_image.ThumbnailF2F(filename, savepath, width, width)
 		if err != nil {
 			beego.Error(err)
 		}
 	}
+}
+
+// 格式化图片
+func FormatImage(picName string) string {
+	ossStatus, err := beego.AppConfig.Bool("ossStatus")
+	if err != nil {
+		//判断目录前面是否有"/"
+		flag := strings.Contains(picName, "/static")
+		if flag {
+			return picName
+		}
+		return "/" + picName
+	} else if ossStatus {
+		return beego.AppConfig.String("ossDomain" + "/" + picName)
+	} else {
+		//再次判断前面是否有"/"
+		flag := strings.Contains(picName, "/static")
+		if flag {
+			return picName
+		}
+		return "/" + picName
+	}
+}
+
+// 格式化级标题
+func FormatAttribute(str string) string {
+	md := []byte(str)
+	htmlByte := markdown.ToHTML(md, nil, nil)
+	return string(htmlByte)
+}
+
+// 计算乘法
+func Mul(price float64, num int) float64 {
+	return price * float64(num)
+}
+
+// 封装一个生产随机数的方法
+func GetRandomNum() string {
+	var str string
+	for i := 0; i < 4; i++ {
+		current := rand.Intn(10) //0-9
+		str += strconv.Itoa(current)
+	}
+	return str
 }
