@@ -93,8 +93,8 @@ func FormatImage(picName string) string {
 	ossStatus, err := beego.AppConfig.Bool("ossStatus")
 	if err != nil {
 		//判断目录前面是否有"/"
-		flag := strings.Contains(picName, "/static")
-		if flag {
+		f := strings.Contains(picName, "/static")
+		if f {
 			return picName
 		}
 		return "/" + picName
@@ -102,8 +102,8 @@ func FormatImage(picName string) string {
 		return beego.AppConfig.String("ossDomain" + "/" + picName)
 	} else {
 		//再次判断前面是否有"/"
-		flag := strings.Contains(picName, "/static")
-		if flag {
+		f := strings.Contains(picName, "/static")
+		if f {
 			return picName
 		}
 		return "/" + picName
