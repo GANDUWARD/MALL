@@ -221,6 +221,7 @@ func (c *AuthController) GoRegister() {
 	sessionSmsCode := c.GetSession("sms_code")
 	if sms_code != sessionSmsCode && sms_code != "5259" {
 		c.Redirect("/auth/registerStep1", 302)
+		return
 	} else if len(password) < 6 {
 		c.Redirect("/auth/registerStep1", 302)
 	} else if password != rpassword {

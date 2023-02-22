@@ -18,5 +18,8 @@ func init() {
 	beego.Router("/auth/registerStep3", &frontend.AuthController{}, "get:RegisterStep3")
 	beego.Router("/auth/goLogin", &frontend.AuthController{}, "post:GoLogin")
 	beego.Router("/auth/loginOut", &frontend.AuthController{}, "get:LoginOut")
+	beego.Router("/user", &frontend.UserController{})
+	beego.Router("/user/order", &frontend.UserController{}, "get:OrderList")
+	beego.Router("/user/orderinfo", &frontend.UserController{}, "get:OrderInfo")
 
 }
