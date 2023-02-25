@@ -238,6 +238,7 @@ func (c *AuthController) GoRegister() {
 		}
 		models.DB.Create(&user)
 		models.Cookie.Set(c.Ctx, "userinfo", user)
+		c.Redirect("/", 302)
 	} else {
 		c.Redirect("/auth/registerStep1", 302)
 	}

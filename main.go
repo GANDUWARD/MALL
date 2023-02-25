@@ -18,6 +18,8 @@ func main() {
 	models.DB.LogMode(true)
 	beego.AddFuncMap("formatImage", common.FormatImage)
 	beego.AddFuncMap("setting", models.GetSettingByColumn)
+	beego.AddFuncMap("mul", common.Mul)
+	beego.AddFuncMap("formatAttribute", common.FormatAttribute)
 	//后台配置允许跨域
 	beego.InsertFilter("*", beego.BeforeRouter, cors.Allow(&cors.Options{
 		AllowOrigins: []string{"127.0.0.1"},

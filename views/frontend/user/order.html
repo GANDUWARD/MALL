@@ -66,7 +66,7 @@
                                         <div class="col_title">
                                             <p>{{$v.ProductTitle}}</p>
                                             <p>{{$v.ProductPrice}}元 × {{$v.ProductNum}}</p>
-                                            <p>合计：{{ $v.ProductPrice  $v.ProductNum}}元</p>
+                                            <p>合计：{{mul $v.ProductPrice $v.ProductNum}}元</p>
                                         </div>
                                     </div>
                                 {{end}}

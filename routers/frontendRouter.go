@@ -21,5 +21,8 @@ func init() {
 	beego.Router("/user", &frontend.UserController{})
 	beego.Router("/user/order", &frontend.UserController{}, "get:OrderList")
 	beego.Router("/user/orderinfo", &frontend.UserController{}, "get:OrderInfo")
-
+	beego.Router("/category_:id([0-9]+).html", &frontend.ProductController{}, "get:CategoryList")
+	beego.Router("/item_:id([0-9]+).html", &frontend.ProductController{}, "get:ProductItem")
+	beego.Router("/product/getImgList", &frontend.ProductController{}, "get:GetImgList")
+	beego.Router("/product/collect", &frontend.ProductController{}, "get:Collect")
 }
