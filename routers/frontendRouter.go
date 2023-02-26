@@ -25,4 +25,11 @@ func init() {
 	beego.Router("/item_:id([0-9]+).html", &frontend.ProductController{}, "get:ProductItem")
 	beego.Router("/product/getImgList", &frontend.ProductController{}, "get:GetImgList")
 	beego.Router("/product/collect", &frontend.ProductController{}, "get:Collect")
+	beego.Router("/cart", &frontend.CartController{})
+	beego.Router("/cart/addCart", &frontend.CartController{}, "get:AddCart")
+	beego.Router("/cart/incCart", &frontend.CartController{}, "get:IncCart")
+	beego.Router("/cart/decCart", &frontend.CartController{}, "get:DecCart")
+	beego.Router("/cart/delCart", &frontend.CartController{}, "get:DelCart")
+	beego.Router("/cart/changeOneCart", &frontend.CartController{}, "get:ChangeOneCart")
+	beego.Router("/cart/changeAllCart", &frontend.CartController{}, "get:ChangeAllCart")
 }
