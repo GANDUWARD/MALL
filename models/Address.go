@@ -11,8 +11,8 @@ type Address struct {
 	Name           string `json:"name"`
 	Address        string `json:"address"`
 	Zipcode        string `json:"zipcode"`
-	DefaultAddress string `json:"default_address"`
-	Addtime        string `json:"add_time"`
+	DefaultAddress int    `json:"default_address"`
+	Addtime        int    `json:"add_time"`
 }
 
 func (Address) TableName() string {

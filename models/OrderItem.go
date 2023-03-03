@@ -10,6 +10,7 @@ type OrderItem struct {
 	Uid            int
 	ProductTitle   string
 	ProductId      int
+	ProductNum     int
 	ProductImg     string
 	ProductPrice   float64
 	ProductVersion string

@@ -1,7 +1,7 @@
 package routers
 
 import (
-	//"MALL/common"
+	"MALL/common"
 	"MALL/controllers/frontend"
 
 	"github.com/astaxie/beego"
@@ -18,6 +18,8 @@ func init() {
 	beego.Router("/auth/registerStep3", &frontend.AuthController{}, "get:RegisterStep3")
 	beego.Router("/auth/goLogin", &frontend.AuthController{}, "post:GoLogin")
 	beego.Router("/auth/loginOut", &frontend.AuthController{}, "get:LoginOut")
+	//配置中间件判断权限
+	beego.InsertFilter("/user/*", beego.BeforeRouter, common.FrontendAuth)
 	beego.Router("/user", &frontend.UserController{})
 	beego.Router("/user/order", &frontend.UserController{}, "get:OrderList")
 	beego.Router("/user/orderinfo", &frontend.UserController{}, "get:OrderInfo")
@@ -32,4 +34,16 @@ func init() {
 	beego.Router("/cart/delCart", &frontend.CartController{}, "get:DelCart")
 	beego.Router("/cart/changeOneCart", &frontend.CartController{}, "get:ChangeOneCart")
 	beego.Router("/cart/changeAllCart", &frontend.CartController{}, "get:ChangeAllCart")
+	//配置中间件判断权限
+	beego.InsertFilter("/buy/*", beego.BeforeRouter, common.FrontendAuth)
+	beego.Router("/buy/checkout", &frontend.CheckoutController{}, "get:Checkout")
+	beego.Router("/buy/doOrder", &frontend.CheckoutController{}, "post:GoOrder")
+	beego.Router("/buy/confirm", &frontend.CheckoutController{}, "get:Confirm")
+	beego.Router("/buy/orderPayStatus", &frontend.CheckoutController{}, "get:OrderPayStatus")
+	//配置中间件判断权限
+	beego.InsertFilter("/address/*", beego.BeforeRouter, common.FrontendAuth)
+	beego.Router("/address/addAddress", &frontend.AddressController{}, "post:AddAddress")
+	beego.Router("/address/getOneAddressList", &frontend.AddressController{}, "get:GetOneAddressList")
+	beego.Router("/address/goEditAddressList", &frontend.AddressController{}, "post:GoEditAddressList")
+	beego.Router("/address/changeDefaultAddress", &frontend.AddressController{}, "get:ChangeDefaultAddress")
 }
