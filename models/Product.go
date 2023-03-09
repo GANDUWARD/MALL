@@ -59,7 +59,6 @@ func GetProductByCategory(cateId int, productType string, LimitNum int) []Produc
 	default:
 		break
 	}
-	DB.Where(where, tempSlice).Select("id,title,price,product_img,sub_title").
-		Limit(LimitNum).Order("sort desc").Find(&product)
+	DB.Where(where, tempSlice).Select("id,title,price,product_img,sub_title").Limit(LimitNum).Order("sort desc").Find(&product)
 	return product
 }

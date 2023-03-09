@@ -46,4 +46,12 @@ func init() {
 	beego.Router("/address/getOneAddressList", &frontend.AddressController{}, "get:GetOneAddressList")
 	beego.Router("/address/goEditAddressList", &frontend.AddressController{}, "post:GoEditAddressList")
 	beego.Router("/address/changeDefaultAddress", &frontend.AddressController{}, "get:ChangeDefaultAddress")
+	//支付宝支付
+	beego.Router("/alipay", &frontend.PayController{}, "get:Alipay")
+	beego.Router("/alipayNotify", &frontend.PayController{}, "post:AlipayNotify")
+	beego.Router("/alipayReturn", &frontend.PayController{}, "get:AlipayReturn")
+
+	//微信支付
+	beego.Router("/wxpay", &frontend.PayController{}, "get:WxPay")
+	beego.Router("/wxpay/notify", &frontend.PayController{}, "post:WxPayNotify")
 }

@@ -16,11 +16,14 @@ require (
 	github.com/jtolds/gls v4.20.0+incompatible // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
+	github.com/smartwalle/crypto4go v1.0.2 // indirect
 	github.com/smartystreets/assertions v1.1.1 // indirect
 	github.com/stretchr/testify v1.8.1 // indirect
+	golang.org/x/time v0.3.0 // indirect
 )
 
 require (
+	github.com/aliyun/aliyun-oss-go-sdk v2.2.6+incompatible
 	github.com/astaxie/beego v1.12.3
 	github.com/beego/beego/v2 v2.0.7
 	github.com/beorn7/perks v1.0.1 // indirect
@@ -33,6 +36,7 @@ require (
 	github.com/lib/pq v1.10.7 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/objcoding/wxpay v1.0.6
 	github.com/olivere/elastic/v7 v7.0.32
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/client_golang v1.14.0 // indirect
@@ -40,6 +44,8 @@ require (
 	github.com/prometheus/common v0.39.0 // indirect
 	github.com/prometheus/procfs v0.9.0 // indirect
 	github.com/shiena/ansicolor v0.0.0-20200904210342-c7312218db18 // indirect
+	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
+	github.com/smartwalle/alipay/v3 v3.2.0
 	golang.org/x/crypto v0.5.0 // indirect
 	golang.org/x/net v0.5.0 // indirect
 	golang.org/x/sys v0.5.0 // indirect
